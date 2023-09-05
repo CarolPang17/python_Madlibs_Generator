@@ -3,7 +3,7 @@ with open("story.txt", "r") as f:
     story = f.read()
 
 #create container to store the words
-words =[]
+words = set()
 #set the "start_of_word" initially to -1, so we can check if this stay -1, means did not move, did not found the location of bracket
 start_of_word = -1
 
@@ -22,3 +22,6 @@ for i, char in enumerate(story):
     if char == target_end and start_of_word != -1:
         # then we can take the entire word, and add that to the words list
         word = story[start_of_word: i + 1 ]
+        words.add(word)
+        start_of_word = -1
+
